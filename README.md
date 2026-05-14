@@ -84,22 +84,23 @@ Seçilen istasyon için saatlik sıcaklık ve bağıl nem zaman serisi grafikler
 ---
 
 ## 🏗️ Proje Yapısı
-weather-data-pipeline/
-├── collectors/
-│   ├── wyoming_collector.py    # Wyoming Üniversitesi radiosonde API
-│   └── openmeteo_collector.py  # Open-Meteo hava verisi API
-├── visualizers/
-│   └── map_visualizer.py       # Cartopy harita + grafik görselleştirme
-├── utils/
-│   ├── logger.py               # Log yönetimi
-│   └── db_handler.py           # Veritabanı bağlantısı (MySQL)
-├── config/
-│   ├── config.yaml             # Yapılandırma dosyası
-│   └── .env.example            # Ortam değişkenleri örneği
-├── data/                       # Ham veri (CSV)
-├── output/                     # Üretilen görseller
-├── logs/                       # Log dosyaları
-└── main.py                     # Ana giriş noktası
+
+    weather-data-pipeline/
+    ├── collectors/
+    │   ├── wyoming_collector.py    # Wyoming Üniversitesi radiosonde API
+    │   └── openmeteo_collector.py  # Open-Meteo hava verisi API
+    ├── visualizers/
+    │   └── map_visualizer.py       # Cartopy harita + grafik görselleştirme
+    ├── utils/
+    │   ├── logger.py               # Log yönetimi
+    │   └── db_handler.py           # Veritabanı bağlantısı (MySQL)
+    ├── config/
+    │   ├── config.yaml             # Yapılandırma dosyası
+    │   └── .env.example            # Ortam değişkenleri örneği
+    ├── data/                       # Ham veri (CSV)
+    ├── output/                     # Üretilen görseller
+    ├── logs/                       # Log dosyaları
+    └── main.py                     # Ana giriş noktası                   # Ana giriş noktası
 
 ---
 
