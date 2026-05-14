@@ -1,0 +1,10 @@
+cartopy==0.22.0
+matplotlib==3.9.2
+numpy==1.26.4
+pandas
+requests
+pycurl
+mysql-connector-python
+python-dotenv
+pyyaml
+shapely

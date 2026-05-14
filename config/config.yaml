@@ -1,0 +1,28 @@
+wyoming:
+  station_id: 17095
+  region: mideast
+  altitude_target: 3170
+  url: "https://weather.uwyo.edu/cgi-bin/sounding"
+
+database:
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  user: ${DB_USER}
+  password: ${DB_PASSWORD}
+  name: ${DB_NAME}
+
+logging:
+  level: INFO
+  retention_days: 7
+  path: logs/
+
+output:
+  path: output/
+  image_dpi: 300
+
+map:
+  turkey_bounds:
+    lon_min: 26
+    lon_max: 45
+    lat_min: 36
+    lat_max: 42
