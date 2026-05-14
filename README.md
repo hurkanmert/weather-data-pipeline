@@ -1,34 +1,34 @@
 # 🌤️ Weather Data Pipeline
 
-Meteorolojik veri toplama, işleme ve görselleştirme pipeline'ı.
-Wyoming Üniversitesi radiosonde verileri ve Open-Meteo API'si kullanılarak
-Türkiye genelinde atmosferik analiz ve harita görselleştirmesi yapılmaktadır.
+A meteorological data collection, processing and visualization pipeline.
+Atmospheric analysis and map visualization across Turkey using
+University of Wyoming radiosonde data and the Open-Meteo API.
 
 ---
 
-## 🚀 Özellikler
+## 🚀 Features
 
-- 🔭 **Wyoming Radiosonde** — Erzurum (İstasyon 17095) atmosferik sondaj verisi
-- 🌡️ **Open-Meteo** — Türkiye geneli gerçek zamanlı ve tarihsel hava verisi
-- 🗺️ **Türkiye Haritası** — Cartopy ile meteorolojik parametre görselleştirmesi
-- 📊 **Zaman Serisi** — Sıcaklık, nem, rüzgar trend grafikleri
-- 📁 **Otomatik kayıt** — CSV çıktıları ve log yönetimi
+- 🔭 **Wyoming Radiosonde** — Atmospheric sounding data from Erzurum (Station 17095)
+- 🌡️ **Open-Meteo** — Real-time and historical weather data across Turkey
+- 🗺️ **Turkey Map** — Meteorological parameter visualization with Cartopy
+- 📊 **Time Series** — Temperature, humidity and wind trend charts
+- 📁 **Auto-save** — CSV outputs and log management
 
 ---
 
-## 🏔️ İstasyonlar
+## 🏔️ Stations
 
-| Kod | İstasyon | Enlem | Boylam | İrtifa |
-|-----|----------|-------|--------|--------|
-| DAG | DAG Gözlemevi, Erzurum | 39.78°N | 41.23°E | 3170 m |
-| TUG | TUG Gözlemevi, Antalya | 36.82°N | 30.34°E | 2547 m |
-| ISTANBUL | İstanbul | 41.01°N | 28.98°E | 100 m |
+| Code | Station | Latitude | Longitude | Altitude |
+|------|---------|----------|-----------|----------|
+| DAG | DAG Observatory, Erzurum | 39.78°N | 41.23°E | 3170 m |
+| TUG | TUG Observatory, Antalya | 36.82°N | 30.34°E | 2547 m |
+| ISTANBUL | Istanbul | 41.01°N | 28.98°E | 100 m |
 | ANKARA | Ankara | 39.93°N | 32.86°E | 938 m |
 | ERZURUM | Erzurum | 39.90°N | 41.27°E | 1869 m |
 
 ---
 
-## ⚙️ Kurulum
+## ⚙️ Installation
 
 ```bash
 git clone https://github.com/hurkanmert/weather-data-pipeline.git
@@ -38,73 +38,73 @@ pip install -r requirements.txt
 
 ---
 
-## 💻 Kullanım
+## 💻 Usage
 
-### Wyoming Radiosonde Verisi
+### Wyoming Radiosonde Data
 ```bash
-# Veri çek
+# Fetch data
 python main.py wyoming
 
-# Veri çek + grafik oluştur
+# Fetch data + generate plots
 python main.py wyoming --plot
 ```
 
-### Open-Meteo Hava Verisi
+### Open-Meteo Weather Data
 ```bash
-# Güncel veri
+# Current conditions
 python main.py openmeteo --station DAG
 
-# Güncel veri + grafik
+# Current conditions + plot
 python main.py openmeteo --station DAG --plot
 
-# Tarihsel veri (son 30 gün)
+# Historical data (last 30 days)
 python main.py openmeteo --station ERZURUM --historical
 
-# Tarih aralığı belirle
+# Custom date range
 python main.py openmeteo --station ISTANBUL --historical --start 2026-01-01 --end 2026-03-01
 
-# Tüm istasyonlar
+# Any station with plot
 python main.py openmeteo --station ANKARA --plot
 ```
 
 ---
 
-## 📊 Örnek Çıktılar
+## 📊 Sample Outputs
 
-### Atmosferik Sondaj Profili
-Sıcaklık, çiy noktası, rüzgar hızı ve nem değerlerinin basınç seviyesine göre dikey dağılımı.
+### Atmospheric Sounding Profile
+Vertical distribution of temperature, dew point, wind speed and humidity by pressure level.
 
-### PWV Haritası
-Türkiye haritası üzerinde DAG ve TUG gözlemevlerinde ölçülen
-Precipitable Water Vapor (PWV) değerleri.
+### PWV Map
+Precipitable Water Vapor (PWV) values measured at DAG and TUG observatories
+overlaid on a Turkey map.
 
-### Sıcaklık & Nem Serisi
-Seçilen istasyon için saatlik sıcaklık ve bağıl nem zaman serisi grafikleri.
+### Temperature & Humidity Series
+Hourly temperature and relative humidity time series charts for the selected station.
 
 ---
 
-## 🏗️ Proje Yapısı
+## 🏗️ Project Structure
 
     weather-data-pipeline/
     ├── collectors/
-    │   ├── wyoming_collector.py    # Wyoming Üniversitesi radiosonde API
-    │   └── openmeteo_collector.py  # Open-Meteo hava verisi API
+    │   ├── wyoming_collector.py    # University of Wyoming radiosonde API
+    │   └── openmeteo_collector.py  # Open-Meteo weather data API
     ├── visualizers/
-    │   └── map_visualizer.py       # Cartopy harita + grafik görselleştirme
+    │   └── map_visualizer.py       # Cartopy map + chart visualization
     ├── utils/
-    │   ├── logger.py               # Log yönetimi
-    │   └── db_handler.py           # Veritabanı bağlantısı (MySQL)
+    │   ├── logger.py               # Log management
+    │   └── db_handler.py           # Database connection (MySQL)
     ├── config/
-    │   ├── config.yaml             # Yapılandırma dosyası
-    │   └── .env.example            # Ortam değişkenleri örneği
-    ├── data/                       # Ham veri (CSV)
-    ├── output/                     # Üretilen görseller
-    ├── logs/                       # Log dosyaları
-    └── main.py                     # Ana giriş noktası                   # Ana giriş noktası
+    │   ├── config.yaml             # Configuration file
+    │   └── .env.example            # Environment variables example
+    ├── data/                       # Raw data (CSV)
+    ├── output/                     # Generated visuals
+    ├── logs/                       # Log files
+    └── main.py                     # Entry point
 
 ---
 
-## 🛠️ Teknolojiler
+## 🛠️ Tech Stack
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![Cartopy](https://img.shields.io/badge/Cartopy-0.22-green)
@@ -114,6 +114,6 @@ Seçilen istasyon için saatlik sıcaklık ve bağıl nem zaman serisi grafikler
 
 ---
 
-## 📄 Lisans
+## 📄 License
 
 MIT License
